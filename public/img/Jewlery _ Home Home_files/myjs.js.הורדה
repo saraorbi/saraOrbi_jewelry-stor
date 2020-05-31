@@ -1,0 +1,20 @@
+$('.add_to_cart').click(function () {
+    console.log($(this).attr('data-id'));
+    console.log(BASE_URL);
+
+    $.ajax({
+        url: BASE_URL + "/shop/AddToCart",
+        type: "GET",
+        //dataType:"json",
+        data: {
+            product_id: $(this).attr('id')
+        },
+        success: function (result) {
+            if (result) {
+                location.reload();
+            }
+        },
+    })
+});
+
+// $('.sm').delay('3000').slidUp();
